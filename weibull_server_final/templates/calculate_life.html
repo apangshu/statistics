@@ -1,0 +1,21 @@
+<!doctype html>
+<title>Show Graphs</title>
+<h1>Uploaded Files</h1>
+<form action="" method=post enctype=multipart/form-data>
+  <p><input type=file name=file>
+	 <input type=submit value=Upload>
+</form>
+<p>%s</p>
+""" % "<br>".join(os.listdir(app.config['UPLOAD_FOLDER'],))
+
+<ul>
+    {%for path in file_paths%}
+        <img src={{path}} alt="Related Book 1" width="40%" height="auto">  
+    {%endfor%}    
+</ul>
+
+<form action="/action_page.php">
+  First name: <input type="text" name="fname"><br>
+  Last name: <input type="text" name="lname"><br>
+  <input type="submit" value="Submit">
+</form>

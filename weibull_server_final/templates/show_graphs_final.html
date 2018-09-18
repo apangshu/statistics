@@ -1,0 +1,36 @@
+<!doctype html>
+<title>Show Graphs</title>
+<h0>Uploaded File Name: <font color="red" size="20">{{filename}}</font></h0>
+<hr>
+<ul>
+    {%for path in file_paths%}
+        <a href={{path}}><img src={{path}} alt="Related Graphs" width="20%" height="20%"></a>  
+    {%endfor%}    
+</ul>
+
+<label>Please click on the above images to enlarge and Press back button to return.</label>
+
+<hr>
+<label>Life Statistics</label><br>
+{{stats}}
+
+
+<hr>
+<div id='stats'>
+<form action="/BLife">
+  <label for="percent">Calculate B-Life of</label><br>
+  <input type="percent" name="percent">(%)  of all units<br>
+  <input type="hidden" id="assetId" name="assetId" value={{assetId}}>
+  <input type="hidden" id="fileName" name="fileName" value={{filename}}>
+  <input type="submit" value="Submit">
+</form>
+
+<button onclick="myFunction()">Click me</button>
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Hello World";
+}
+</script>
+</div>

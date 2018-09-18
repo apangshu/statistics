@@ -1,0 +1,50 @@
+<!doctype html>
+<title>Show Graphs</title>
+<h0>Uploaded File Name: <font color="red" size="20">{{filename}}</font></h0>
+<hr>
+<ul>
+    {%for path in file_paths%}
+        <a href={{path}}><img src={{path}} alt="Related Graphs" width="20%" height="20%"></a>  
+    {%endfor%}    
+</ul>
+
+<label>Please click on the above images to enlarge and Press back button to return.</label>
+
+<hr>
+<label>Life Statistics</label><br>
+{{stats}}
+
+
+<hr>
+<div id='stats'>
+<form action="/BLife">
+  <label for="percent">Calculate B-Life of</label><br>
+  <input type="percent" name="percent">(%)  of all units<br>
+  <input type="hidden" id="assetId" name="assetId" value={{assetId}}>
+  <input type="hidden" id="fileName" name="fileName" value={{filename}}>
+  <input type="submit" value="Submit">
+</form>
+
+<input type="button" id="btnCallService" value="GetEmployeeDetail" />
+<label id="lblData"></label>
+
+<script>
+$(function() {
+    $('#btnCallService').click(function() {
+        $.ajax({
+            type: 'GET',
+            url: 'graphs?fileName=Train_-_Failures.csv&assetId=A617958',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function(response) {
+                $('#lblData').html(JSON.stringify(response));
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+});
+
+</script>
+</div>

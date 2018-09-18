@@ -1,0 +1,25 @@
+<!doctype html>
+<title>Show Dropdown</title>
+<h0>Uploaded File Name: <font color="red" size="60">{{filename}}</font></h0> 
+
+<!--
+<form action="" method=post enctype=multipart/form-data>
+  <p><input type=file name=file>
+	 <input type=submit value=Upload>
+</form>
+<p>{{filename}}</p>
+-->
+
+<br>
+<hr>
+<label for="ids">Select an Asset Id from the below drop down</label>
+<form action="/graphs">
+    <input type="hidden" id="fileName" name="fileName" value={{filename}}>  
+    <input list="ids" name="assetId">
+        <datalist id="ids">
+            {%for id in assetIds%}
+                <option value={{id}}>{{id}}</option>
+            {%endfor%}
+        </datalist>
+    <input type="submit">
+</form>

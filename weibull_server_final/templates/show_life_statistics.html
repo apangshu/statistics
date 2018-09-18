@@ -1,0 +1,31 @@
+<!doctype html>
+<title>Show Dropdown</title>
+<h0>Uploaded File Name: <font color="red" size="60">{{filename}}</font></h0> 
+
+<!--
+<form action="" method=post enctype=multipart/form-data>
+  <p><input type=file name=file>
+	 <input type=submit value=Upload>
+</form>
+<p>{{filename}}</p>
+-->
+
+<br>
+<hr>
+
+<ul>
+    {%for path in file_paths%}
+        <a href={{path}}><img src={{path}} alt="Related Graphs" width="20%" height="20%"></a>  
+    {%endfor%}    
+</ul>
+<label>Please click on the above images to enlarge and Press back button to return.</label>
+<hr>
+<label>Life Statistics</label><br>
+{{stats}}
+
+<hr>
+<label>B-Life for {{percent}} % of all Units: </label><br>
+{{bLife}}
+
+<br>
+<label>Click Back button to set another percent of unit</label><br>
